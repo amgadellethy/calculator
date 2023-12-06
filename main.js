@@ -35,3 +35,6 @@ function calculate (){
         return;
     }
 }
+
+// git config --local user.name "Amgad Ellethy"
+// git config --local user.email "amgadellethyy@gmail.com"
