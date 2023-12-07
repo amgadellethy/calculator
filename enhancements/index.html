@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div class="calculator">
+        <div class="display">
+            <div class="output"></div>
+            <div class="result">0</div>
+        </div>
+        <div class="buttons" id="calculatorButtons"></div>
+    </div>
+    
+    <script src="main.js"></script>
+    <script>
+        const buttonsConfig = [
+            'C', 'DEL', '%', '/',
+            '7', '8', '9', '*',
+            '4', '5', '6', '-',
+            '1', '2', '3', '+',
+            '0', '.', '='
+        ];
+
+        const buttonsContainer = document.getElementById('calculatorButtons');
+
+        buttonsConfig.forEach(buttonText => {
+            const button = document.createElement('button');
+            button.textContent = buttonText;
+            button.classList.add(isNaN(buttonText) ? 'operator' : 'number'); // Assuming isNaN can be used to determine operators
+            buttonsContainer.appendChild(button);
+        });
+    </script>
+</body>
+</html>
+
+
+<!-- commit messages 
+FEAT : feature ==> when you add some thing new or enhancement
+FIX : fix ==> when you fix a bug in the code 
+TEST : test ==> when you write a unit test or integration test (in the future)  -->

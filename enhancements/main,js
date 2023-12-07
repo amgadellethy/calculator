@@ -1,0 +1,50 @@
+// declare variables ================
+const outputEl = document.querySelector(".output");
+const result = document.querySelector(".result");
+const buttons = document.querySelectorAll("button");
+
+// function ==============================
+
+buttons.forEach(key => {
+    key.addEventListener("click", calculate);
+});
+
+//make a function to make clear extract it to be a single responsibility 
+function clearOutput() {
+    outputEl.innerText = "";
+    result.innerText = 0;
+}
+
+//make a function to make clear extract it to be a single responsibility 
+function deleteLastCharacter() {
+    outputEl.textContent = outputEl.textContent.substring(0, outputEl.textContent.length - 1);
+}
+
+function calculateEqual() {
+    result.textContent = eval(outputEl.textContent);
+    result.style.animation = "big 0.3s ease-in-out";
+    outputEl.style.animation = "small 0.3s ease-in-out";
+    result.style.animationFillMode = "forwards";
+    outputEl.style.animationFillMode = "forwards";
+}
+
+//convert if else to switch to be more readabl
+//make it to do a single responsibility and aslo opened for extension each part isolated from the others and based on the condition you will do something.
+function calculate() {
+    const buttonText = this.innerText;
+
+    switch (buttonText) {
+        case "C":
+            clearOutput();
+            break;
+        case "DEL":
+            deleteLastCharacter();
+            break;
+        case "=":
+            calculateEqual();
+            break;
+        default:
+            outputEl.textContent += buttonText;
+            break;
+    }
+}
